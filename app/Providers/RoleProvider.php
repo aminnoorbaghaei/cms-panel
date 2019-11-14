@@ -23,6 +23,6 @@ class RoleProvider extends ServiceProvider
      */
     public function register()
     {
-       return "ok";
+       //
     }
 }

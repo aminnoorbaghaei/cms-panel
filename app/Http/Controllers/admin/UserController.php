@@ -15,6 +15,7 @@ use App\Exports\UserExport;
 
 class UserController extends Controller
 {
+   
     public function exportExcel($data){
 
 
