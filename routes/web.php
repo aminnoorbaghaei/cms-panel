@@ -188,15 +188,15 @@ Route::group(["namespace"=>"admin","middleware"=>["auth:web"],"prefix"=>"admin/u
 
 Route::group(["namespace"=>"Auth","prefix"=>'{lang?}',"middleware"=>["localization:web"]],function (){
 
-    $this->get('login', 'admin\LoginController@showLoginForm')->name('login');
+    $this->get('login', 'LoginController@showLoginForm')->name('login');
 
 
     // Registration Routes...
-    $this->get('register', 'admin\RegisterController@showRegistrationForm')->name('register');
-    $this->post('register', 'admin\RegisterController@register');
+    $this->get('register', 'RegisterController@showRegistrationForm')->name('register');
+    $this->post('register', 'RegisterController@register');
 
     // Password Reset Routes...
-    $this->get('password/reset', 'admin\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    $this->get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
 
 
@@ -205,60 +205,28 @@ Route::group(["namespace"=>"Auth","prefix"=>'{lang?}',"middleware"=>["localizati
 Route::group(["namespace"=>"Auth"],function (){
 
 
-    $this->post('login', 'admin\LoginController@login');
-    $this->post('logout', 'admin\LoginController@logout')->name('logout');
+    $this->post('login', 'LoginController@login');
+    $this->post('logout', 'LoginController@logout')->name('logout');
 
 
-    $this->post('password/email', 'admin\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    $this->get('password/reset/{token}', 'admin\ResetPasswordController@showResetForm')->name('password.reset');
-    $this->post('password/reset', 'admin\ResetPasswordController@reset');
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::group(["namespace"=>"Auth","prefix"=>'{lang?}',"middleware"=>["localization:web"]],function (){
-
-    $this->get('login', 'client\LoginController@showLoginForm')->name('login');
-
-
-    // Registration Routes...
-    $this->get('register', 'client\RegisterController@showRegistrationForm')->name('register');
-    $this->post('register', 'client\RegisterController@register');
-
-    // Password Reset Routes...
-    $this->get('password/reset', 'client\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-
+    $this->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    $this->get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    $this->post('password/reset', 'ResetPasswordController@reset');
 
 
 });
 
-Route::group(["namespace"=>"Auth"],function (){
 
 
-    $this->post('login', 'client\LoginController@login');
-    $this->post('logout', 'client\LoginController@logout')->name('logout');
 
 
-    $this->post('password/email', 'client\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    $this->get('password/reset/{token}', 'client\ResetPasswordController@showResetForm')->name('password.reset');
-    $this->post('password/reset', 'client\ResetPasswordController@reset');
 
 
-});
+
+
+
+
+
 
 
 
