@@ -3,13 +3,16 @@
 namespace App;
 
 use App\Http\General\GeneralMethod;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Client extends Model implements HasMedia
+class Client extends Authenticatable implements HasMedia
 {
-  use HasMediaTrait,GeneralMethod;
+  use Notifiable,HasMediaTrait,GeneralMethod;
+  
+  protected $guard='client';
     /**
      * The attributes that are mass assignable.
      *
@@ -25,6 +28,6 @@ class Client extends Model implements HasMedia
      * @var array
      */
     protected $hidden = [
-        'remember_token',
+        'remember_token','password'
     ];
 }

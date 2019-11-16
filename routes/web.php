@@ -26,7 +26,7 @@ $this->get('/t',function (){
         "last_name"=>"محبی",
         "full_name"=>"الهام محبی",
         "email"=>"mohebi.e2017@gmail.com",
-        "password"=>bcrypt("12345"),
+        "password"=>bcrypt("123456"),
         "status"=>1,
         "lang_id"=>1,
         "api_token"=>Str::random(20)
@@ -34,6 +34,17 @@ $this->get('/t',function (){
 
 
 });
+
+
+
+//        Route::get('/client',"ClientController@index")->name('client.dashboard');
+       
+
+
+
+
+
+
 
 
 //----------------- front ----------------------
@@ -51,7 +62,7 @@ Route::group(['namespace'=>'front',"prefix"=>'{lang?}',"middleware"=>["localizat
     $this->get('news', "panelController@news")->name("front.website.news");
     $this->get('Article/{id}',"panelController@singleArticle")->name('front.single.article');
     $this->get('new/{id}',"panelController@singleNew")->name('front.single.new');
-   $this->get('Product/{id}',"panelController@singleProduct")->name('front.single.product');
+    $this->get('Product/{id}',"panelController@singleProduct")->name('front.single.product');
     $this->get('register-user',"UserController@registerPage")->name('register-user-account');
 
 });
@@ -59,12 +70,33 @@ Route::group(['namespace'=>'front',"prefix"=>'{lang?}',"middleware"=>["localizat
 
 //------------------panel client ---------------------
 
-Route::group(["prefix"=>"client","namespace"=>"client"] , function (){
 
-    $this->get('panel',"PanelController@index");
+
+Route::group(['namespace'=>'Auth',"prefix"=>'{lang?}/client',"middleware"=>["localization:web"]],function () {
+
+
+    $this->get('/login','ClientLoginController@showLoginForm')->name('client.login');
+
+    
 
 
 });
+Route::group(["middleware"=>["auth:client"]],function () {
+
+
+    $this->get('/client/panel',"ClientController@index")->name('client.dashboard');
+    $this->get('/client/panel/profile',"ClientController@profile")->name('client.profile');
+
+
+
+
+});
+
+
+Route::post('/client/login','Auth\ClientLoginController@login')->name('client.login.submit');
+Route::get('/client/logout','Auth\ClientLoginController@logout')->name('client.logout');
+
+
 
 //------------------panel admin ---------------------
 
@@ -206,7 +238,7 @@ Route::group(["namespace"=>"Auth"],function (){
 
 
     $this->post('login', 'LoginController@login');
-    $this->post('logout', 'LoginController@logout')->name('logout');
+    $this->post('logout', 'LoginController@adminLogout')->name('logout');
 
 
     $this->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -215,6 +247,9 @@ Route::group(["namespace"=>"Auth"],function (){
 
 
 });
+
+
+
 
 
 

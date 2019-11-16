@@ -148,7 +148,12 @@ return [
     "RecoveryPassword"=>"استعادة كلمة السر",
     "RememberMe"=>"تذكرنى",
     "ResetPassword"=>"إعادة تعيين كلمة المرور",
-    "SendPasswordResetLink"=>"إرسال رابط إعادة تعيين كلمة المرور"
+    "SendPasswordResetLink"=>"إرسال رابط إعادة تعيين كلمة المرور",
+    "LoginToUserPanel"=>"تسجيل الدخول إلى لوحة المستخدم",
+    "UserPanel"=>"User Panel",
+    "Messages"=>"Messages",
+    "Tasks"=>"Tasks",
+    "EditProfile"=>"Edit Profile"
     
 
 

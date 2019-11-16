@@ -165,7 +165,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item">
-                            <img class="d-block w-100 p-img" src="/public/admin/img/general/bg-img3.jpg" alt="First slide">
+                            <img class="d-block w-100 p-img" src="/public/admin/img/general/p-1.jpg" alt="First slide">
                             <div class="card-img-overlay text-white">
                                 <span class="badge badge-primary badge-pill text-white font-medium">فروش نقدی</span>
                                 <h2 class="mt-3">محصول اول</h2>
@@ -225,7 +225,7 @@
         <div class="col-md-12">
             <div class="card material-card">
                 <div class="card-body">
-                    <h5 class="card-title text-uppercase mb-0">مدیریت کاربران</h5>
+                    <h5 class="card-title text-uppercase mb-0"> مدیران</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table no-wrap user-table mb-0">
@@ -286,6 +286,79 @@
                             </td>
                         </tr>
                             @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card material-card">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase mb-0"> کاربران</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table no-wrap user-table mb-0">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="border-0 text-uppercase font-medium pl-4">شناسه</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">تصویر</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">نام و نام خانوادگی</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">مدرک تحصیلی</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">آدرس الکترونیکی</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">تاریخ ایجاد</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">سمت</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">مدیریت</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($clients as $client)
+                            <tr>
+                                <td class="pl-4">1</td>
+                                <td>
+                                    @if(!$client->hasMedia('images'))
+
+                                        <img src="{{ url("/public/admin/img/pic/no-pic-user.jpg")}}" alt="user" class="rounded-circle" width="31">
+                                    @else
+                                        <img src="{{ url("public".$client->getFirstMediaUrl('images'))}}" alt="user" class="rounded-circle" width="31">
+
+                                    @endif
+                                </td>
+                                <td>
+                                    <h5 class="font-medium mb-0">{{$client->full_name}}</h5>
+                                    <span class="text-muted">{{$client->city}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-muted">لیسانس</span><br>
+
+                                </td>
+                                <td>
+                                    <span class="text-muted">{{$client->email}}</span><br>
+                                    <span class="text-muted">{{$client->mobile}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-muted">{{$client->created_at}}</span><br>
+
+                                </td>
+                                <td>
+                                    <select class="form-control category-select" id="exampleFormControlSelect1">
+                                        <option>کاربر معمولی</option>
+                                        <option>مدیر</option>
+                                        <option>حسابدار</option>
+                                        <option>ویرایشکر</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle" title="مدیریت"><i class="ti-key"></i> </button>
+                                    <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" title="مدیریت"><i class="icon-trash"></i> </button>
+                                    <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" title="مدیریت" ><i class="ti-pencil-alt"></i> </button>
+                                    <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" title="مدیریت"><i class="ti-upload"></i> </button>
+                                </td>
+                            </tr>
+                        @endforeach
 
                         </tbody>
                     </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 
 
+use App\Client;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,6 +18,7 @@ class PanelController extends Controller
     
     function index(){
 
+        
         $data=SetInformationLang(auth()->user(),$this->defaultPosition,$this->defaultCode);
 
        $trans=$data['trans'];
@@ -24,9 +26,10 @@ class PanelController extends Controller
         $position=$data['position'];
         
         $users=User::latest()->get();
+        $clients=Client::latest()->get();
 
         
-        return view("admin.index",compact('trans','code','position','users'));
+        return view("admin.index",compact('trans','code','position','users','clients'));
 
     }
 

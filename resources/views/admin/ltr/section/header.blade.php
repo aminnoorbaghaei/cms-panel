@@ -11,7 +11,11 @@
     <title>پنل مدیریت</title>
     <!-- This Page CSS -->
 
-
+{{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js') }}
+{{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js') }}
+{{ Html::style('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css') }}
+{{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js') }}
+{{ Html::style('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css') }}
 
 
 

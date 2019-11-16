@@ -149,7 +149,12 @@ return [
     "RecoveryPassword"=>"Recovery Password",
     "RememberMe"=>"Remember Me",
     "ResetPassword"=>"Reset Password",
-    "SendPasswordResetLink"=>"Send Password Reset Link"
+    "SendPasswordResetLink"=>"Send Password Reset Link",
+    "LoginToUserPanel"=>"Login To USer Panel",
+    "UserPanel"=>"User Panel",
+    "Messages"=>"Messages",
+    "Tasks"=>"Tasks",
+    "EditProfile"=>"Edit Profile"
     
 
 

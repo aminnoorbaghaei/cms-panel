@@ -148,7 +148,12 @@ return [
     "RecoveryPassword"=>"بازیابی رمز عبور",
     "RememberMe"=>"مرا به خاطر بسپار",
     "ResetPassword"=>"بازیابی پسورد",
-    "SendPasswordResetLink"=>"ارسال ایمبل تغییر پسورد"
+    "SendPasswordResetLink"=>"ارسال ایمبل تغییر پسورد",
+    "LoginToUserPanel"=>"ورود به پنل مشتری",
+    "UserPanel"=>"پنل مشتری",
+    "Messages"=>"پیام ها",
+    "Tasks"=>"وظیفه ها",
+    "EditProfile"=>"ویرایش پروفایل"
 
 
 

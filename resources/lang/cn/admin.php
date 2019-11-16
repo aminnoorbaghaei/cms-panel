@@ -148,7 +148,14 @@ return [
     "RecoveryPassword"=>"恢復密碼",
     "RememberMe"=>"記住賬號",
     "ResetPassword"=>"重設密碼",
-    "SendPasswordResetLink"=>"發送密碼重置鏈接"
+    "SendPasswordResetLink"=>"發送密碼重置鏈接",
+    "LoginToUserPanel"=>"登錄到用戶面板",
+    "UserPanel"=>"User Panel",
+    "Messages"=>"Messages",
+    "Tasks"=>"Tasks",
+    "EditProfile"=>"Edit Profile"
+
+
     
 
 

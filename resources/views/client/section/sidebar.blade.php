@@ -3,13 +3,13 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="{{route('client.profile')}}" class="simple-text logo-mini">
             <div class="logo-image-small">
                 <img src="/public/media/33/1.png">
             </div>
         </a>
         <a href="#" class="simple-text logo-normal">
-            amin nourbaghaei
+             {{$client->full_name}}
 
         </a>
     </div>
@@ -18,21 +18,22 @@
             <li class="active ">
                 <a href="#">
                     <i class="nc-icon nc-bank"></i>
-                    <p>Dashboard</p>
+                    <p>{{$trans['Dashboard']}}</p>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class="nc-icon nc-diamond"></i>
-                    <p>Messages</p>
+                    <p>{{$trans['Messages']}}</p>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class="nc-icon nc-pin-3"></i>
-                    <p>Tasks</p>
+                    <p>{{$trans['Tasks']}}</p>
                 </a>
             </li>
+
 
         </ul>
     </div>
